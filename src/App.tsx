@@ -1,4 +1,4 @@
-import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -16,8 +16,13 @@ import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import dataProvider from "@refinedev/simple-rest";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+
+import { LaravelProvider } from './LaravelProvider'
+
+import resources from './resources.json'
+
+import MenuRoutes from './routes/menu'
 
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -31,7 +36,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorSchemeProvider
           colorScheme={colorScheme}
@@ -49,18 +53,18 @@ function App() {
                 <Refine
                   notificationProvider={notificationProvider}
                   routerProvider={routerBindings}
-                  dataProvider={dataProvider(
-                    "https://api.fake-rest.refine.dev"
+                  dataProvider={LaravelProvider(
+                    //"https://api.fake-rest.refine.dev"
+                    "http://localhost:8000/api"
                   )}
+                  resources={resources}
                   options={{
                     syncWithLocation: true,
                     warnWhenUnsavedChanges: true,
                     projectId: "u2V30w-22rYhM-IS4ryi",
                   }}
                 >
-                  <Routes>
-                    <Route index element={<WelcomePage />} />
-                  </Routes>
+                  <MenuRoutes />
                   <RefineKbar />
                   <UnsavedChangesNotifier />
                   <DocumentTitleHandler />

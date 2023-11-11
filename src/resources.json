@@ -1,0 +1,42 @@
+[
+  {
+    "name": "projects",
+    "list": "/projects",
+    "create": "/projects/create",
+    "edit": "/projects/edit/:id",
+    "show": "/projects/show/:id",
+    "meta": {
+      "canDelete": true
+    }
+  },
+  {
+    "name": "repositories",
+    "list": "/repositories",
+    "create": "/repositories/create",
+    "edit": "/repositories/edit/:id",
+    "show": "/repositories/show/:id",
+    "meta": {
+      "canDelete": true
+    }
+  },
+  {
+    "name": "technologies",
+    "list": "/technologies",
+    "create": "/technologies/create",
+    "edit": "/technologies/edit/:id",
+    "show": "/technologies/show/:id",
+    "meta": {
+      "canDelete": true
+    }
+  },
+  {
+    "name": "types",
+    "list": "/types",
+    "create": "/types/create",
+    "edit": "/types/edit/:id",
+    "show": "/types/show/:id",
+    "meta": {
+      "canDelete": true
+    }
+  }
+]
