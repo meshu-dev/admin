@@ -24,6 +24,8 @@ import resources from './resources.json'
 
 import MenuRoutes from './routes/menu'
 
+import { authProvider } from './authProvider';
+
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
@@ -57,6 +59,7 @@ function App() {
                     //"https://api.fake-rest.refine.dev"
                     "http://localhost:8000/api"
                   )}
+                  authProvider={authProvider}
                   resources={resources}
                   options={{
                     syncWithLocation: true,

@@ -1,22 +1,17 @@
-import axios from "axios";
-import { DataProvider, HttpError } from "@refinedev/core";
-import { stringify } from "query-string";
+import axios, { AxiosRequestConfig } from "axios";
+import { DataProvider, HttpError } from "@refinedev/core"
+import { getToken } from './authProvider'
+import { LaravelListResponse, LaravelSingleResponse } from './interfaces/laravel.interface'
 
 const axiosInstance = axios.create();
 
-interface LaravelListResponse {
-  data: {
-    data: Array<any>
-    meta: {
-      total: number
+const getRequestConfig = (): AxiosRequestConfig => {
+  const requestConfig: AxiosRequestConfig = {
+    headers: {
+      'Authorization': `Bearer ${getToken()}`
     }
   }
-}
-
-interface LaravelSingleResponse {
-  data: {
-    data: any
-  }
+  return requestConfig
 }
 
 export const LaravelProvider = (apiUrl: string): DataProvider => ({
@@ -26,10 +21,7 @@ export const LaravelProvider = (apiUrl: string): DataProvider => ({
     const perPage: number     = pagination?.pageSize ?? 10
     const url: string         = `${apiUrl}/${resource}?page=${currentPage}&per_page=${perPage}`;
 
-    const { data }: LaravelListResponse = await axiosInstance.get(url);
-
-    //const total = +headers["x-total-count"];
-    console.log('response', data.data, pagination);
+    const { data }: LaravelListResponse = await axiosInstance.get(url, getRequestConfig());
 
     return {
       data: data.data,
@@ -39,39 +31,25 @@ export const LaravelProvider = (apiUrl: string): DataProvider => ({
   getOne: async ({ resource, id }) => {
     const url = `${apiUrl}/${resource}/${id}`;
 
-    const { data }: LaravelSingleResponse  = await axiosInstance.get(url);
-
-    return {
-      data: data.data
-    };
+    const { data }: LaravelSingleResponse  = await axiosInstance.get(url, getRequestConfig());
+    return { data: data.data }
   },
   create: async ({ resource, variables }) => {
     const url = `${apiUrl}/${resource}`;
 
-    const { data } = await axiosInstance.post(url, variables);
-
-    return {
-      data,
-    };
+    const { data } = await axiosInstance.post(url, variables, getRequestConfig());
+    return { data }
   },
   update: async ({ resource, id, variables }) => {
     const url = `${apiUrl}/${resource}/${id}`;
 
-    const { data } = await axiosInstance.patch(url, variables);
-
-    return {
-      data,
-    };
+    const { data } = await axiosInstance.patch(url, variables, getRequestConfig());
+    return { data }
   },
   deleteOne: async ({ resource, id, variables }) => {
     const url = `${apiUrl}/${resource}/${id}`;
 
-    const { data } = await axiosInstance.delete(url, {
-      data: variables,
-    });
-
-    return {
-      data,
-    };
+    const { data } = await axiosInstance.delete(url, getRequestConfig());
+    return { data }
   }
 });
