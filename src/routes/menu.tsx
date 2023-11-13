@@ -5,6 +5,7 @@ import { ThemedLayoutV2, ErrorComponent } from '@refinedev/mantine';
 import { Header } from './../components/header/index';
 
 import AboutRoutes from './about'
+import ImageRoutes from './images'
 import ProjectRoutes from './projects'
 import RepositoryRoutes from './repositories'
 import TechnologyRoutes from './technologies'
@@ -31,6 +32,7 @@ const MenuRoutes = () => (
         }
       >
         <Route path="/about/*" element={<AboutRoutes />} />
+        <Route path="/images/*" element={<ImageRoutes />} />
         <Route path="/projects/*" element={<ProjectRoutes />} />
         <Route path="/repositories/*" element={<RepositoryRoutes />} />
         <Route path="/technologies/*" element={<TechnologyRoutes />} />

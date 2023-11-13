@@ -9,6 +9,16 @@
     }
   },
   {
+    "name": "images",
+    "list": "/images",
+    "create": "/images/create",
+    "edit": "/images/edit/:id",
+    "show": "/images/show/:id",
+    "meta": {
+      "canDelete": true
+    }
+  },
+  {
     "name": "projects",
     "list": "/projects",
     "create": "/projects/create",

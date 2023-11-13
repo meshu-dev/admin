@@ -5,7 +5,7 @@ import { LaravelListResponse, LaravelSingleResponse } from './interfaces/laravel
 
 const axiosInstance = axios.create();
 
-const getRequestConfig = (): AxiosRequestConfig => {
+export const getRequestConfig = (): AxiosRequestConfig => {
   const requestConfig: AxiosRequestConfig = {
     headers: {
       'Authorization': `Bearer ${getToken()}`

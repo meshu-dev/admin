@@ -15,6 +15,7 @@ export interface LaravelSingleResponse {
 
 export interface LaravelAuthResponse {
   data: {
-    token: string
+    token: string,
+    user: any
   }
 }
