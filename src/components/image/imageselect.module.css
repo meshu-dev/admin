@@ -1,0 +1,8 @@
+.project-image {
+  border: 5px solid transparent;
+  cursor: pointer;
+}
+
+.project-image-selected {
+  border: 5px solid red;
+}

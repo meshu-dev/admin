@@ -17,11 +17,19 @@ export const getRequestConfig = (): AxiosRequestConfig => {
 export const LaravelProvider = (apiUrl: string): DataProvider => ({
   getApiUrl: () => apiUrl,
   getList: async ({ resource, pagination, sorters, filters, meta }) => {
-    const currentPage: number = pagination?.current ?? 1
-    const perPage: number     = pagination?.pageSize ?? 10
-    const url: string         = `${apiUrl}/${resource}?page=${currentPage}&per_page=${perPage}`;
+    let url: string    = `${apiUrl}/${resource}`
+    const mode: string = pagination?.mode ?? 'off'
+
+    if (mode !== 'off') {
+      const currentPage: number    = pagination?.current ?? 1
+      const perPage: number        = pagination?.pageSize ?? 10
+
+      url += `?page=${currentPage}&per_page=${perPage}`
+    }
 
     const { data }: LaravelListResponse = await axiosInstance.get(url, getRequestConfig());
+
+    console.log('getList Call!!!', url, pagination)
 
     return {
       data: data.data,
@@ -43,7 +51,7 @@ export const LaravelProvider = (apiUrl: string): DataProvider => ({
   update: async ({ resource, id, variables }) => {
     const url = `${apiUrl}/${resource}/${id}`;
 
-    const { data } = await axiosInstance.patch(url, variables, getRequestConfig());
+    const { data } = await axiosInstance.put(url, variables, getRequestConfig());
     return { data }
   },
   deleteOne: async ({ resource, id, variables }) => {

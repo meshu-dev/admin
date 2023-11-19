@@ -57,7 +57,7 @@ function App() {
                   routerProvider={routerBindings}
                   dataProvider={LaravelProvider(
                     //"https://api.fake-rest.refine.dev"
-                    "http://localhost:8000/api"
+                    "http://127.0.0.1:8000/api"
                   )}
                   authProvider={authProvider}
                   resources={resources}

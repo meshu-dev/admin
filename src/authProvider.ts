@@ -7,7 +7,7 @@ export const TOKEN_KEY = 'refine-auth'
 const axiosInstance = axios.create()
 
 const sendLoginRequest = async (email: string, password: string): Promise<LaravelAuthResponse> => {
-  const apiUrl: string = 'http://localhost:8000/api'
+  const apiUrl: string = 'http://127.0.0.1:8000/api'
   const url: string    = `${apiUrl}/auth/login`
 
   const data: LaravelAuthResponse = await axiosInstance.post(url, { email, password })
