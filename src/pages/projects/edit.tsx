@@ -25,6 +25,7 @@ export const ProjectEdit: React.FC<IResourceComponentsProps> = () => {
   } = useForm({
     initialValues: {
       id: "",
+      typeSelected: { id: 0 },
       type: 0,
       name: "",
       description: "",
@@ -32,20 +33,22 @@ export const ProjectEdit: React.FC<IResourceComponentsProps> = () => {
       repositories: {},
       technologies: {},
       images: {}
-    }
+    },
+    transformValues: (values) => {
+      values.type = values.typeSelected.id
+      return values
+    },
   })
 
   const projectsData = queryResult?.data?.data
 
-  console.log('projectsData', projectsData)
-
-  const setType         = (id: number): void => setFieldValue('type', id)
+  const setType         = (id: number): void => setFieldValue('typeSelected', { id })
   const setRepositories = (ids: number[]): void => setFieldValue('repositories', ids)
   const setTechnologies = (ids: number[]): void => setFieldValue('technologies', ids)
   const setImage        = (id: Number): void => setFieldValue('images', [id])
 
   useEffect(() => {
-    //setFieldValue('type', projectsData?.type?.id)
+    setFieldValue('typeSelected', { id: projectsData?.type?.id })
     setFieldValue('repositories', projectsData?.repositories?.map((item: any) => item?.id))
     setFieldValue('technologies', projectsData?.technologies?.map((item: any) => item?.id))
     setFieldValue('images', [projectsData?.images[0]['id'] ])
@@ -66,7 +69,7 @@ export const ProjectEdit: React.FC<IResourceComponentsProps> = () => {
         label="Url"
         { ...getInputProps("url") } />
       <TypeSelect
-        fieldProps={ getInputProps("type.id") }
+        fieldProps={ getInputProps("typeSelected.id") }
         onTypeSelectFtn={ setType } />
       <RepositorySelect
         fieldProps={ getInputProps("repositories") }
