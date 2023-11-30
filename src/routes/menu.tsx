@@ -34,7 +34,6 @@ const MenuRoutes = () => (
         </Authenticated>
       }
     >
-      <Route path="/about/*" element={<AboutRoutes />} />
       <Route path="/images/*" element={<ImageRoutes />} />
       <Route path="/projects/*" element={<ProjectRoutes />} />
       <Route path="/repositories/*" element={<RepositoryRoutes />} />

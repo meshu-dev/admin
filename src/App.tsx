@@ -36,6 +36,9 @@ function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
+  
+    console.log('process.env.REACT_APP_API_URL', process.env, process.env.REACT_APP_API_URL)
+
   return (
     <BrowserRouter>
       <RefineKbarProvider>
@@ -57,7 +60,7 @@ function App() {
                   routerProvider={routerBindings}
                   dataProvider={LaravelProvider(
                     //"https://api.fake-rest.refine.dev"
-                    "http://127.0.0.1:8000/api",
+                    String(process.env.REACT_APP_API_URL),
                   )}
                   authProvider={authProvider}
                   resources={resources}

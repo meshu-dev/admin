@@ -1,14 +1,5 @@
 [
   {
-    "name": "about",
-    "list": "/about",
-    "edit": "/about/edit/:id",
-    "show": "/about/show/:id",
-    "meta": {
-      "canDelete": false
-    }
-  },
-  {
     "name": "images",
     "list": "/images",
     "create": "/images/create",

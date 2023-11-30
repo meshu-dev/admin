@@ -1,6 +1,23 @@
 import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineEditInferencer } from "@refinedev/inferencer/mantine";
+import { Edit, useForm } from "@refinedev/mantine";
+import { NumberInput, TextInput } from "@mantine/core";
 
 export const TechnologyEdit: React.FC<IResourceComponentsProps> = () => {
-  return <MantineEditInferencer />;
+    const {
+        getInputProps,
+        saveButtonProps,
+        setFieldValue,
+        refineCore: { queryResult },
+    } = useForm({
+        initialValues: { id: "", name: "" },
+    });
+
+    const technologiesData = queryResult?.data?.data;
+
+    return (
+        <Edit saveButtonProps={saveButtonProps}>
+            <NumberInput mt="sm" disabled label="Id" {...getInputProps("id")} />
+            <TextInput mt="sm" label="Name" {...getInputProps("name")} />
+        </Edit>
+    );
 };
