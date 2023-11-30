@@ -1,25 +1,12 @@
 import { IResourceComponentsProps } from "@refinedev/core";
-import { Edit, useForm, useSelect } from "@refinedev/mantine";
+import { Edit, useForm } from "@refinedev/mantine";
 import {
   NumberInput,
-  Select,
   TextInput,
   Textarea,
-  MultiSelect,
-  Image,
-  Group,
-  Title,
   Text,
 } from "@mantine/core";
 import { useEffect } from "react";
-
-/*
-import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineEditInferencer } from "@refinedev/inferencer/mantine";
-
-export const ProjectEdit: React.FC<IResourceComponentsProps> = () => {
-  return <MantineEditInferencer />;
-} */
 
 import TypeSelect from "./../../components/dropdown/TypeSelect";
 import RepositorySelect from "./../../components/dropdown/RepositorySelect";
@@ -70,7 +57,7 @@ export const ProjectEdit: React.FC<IResourceComponentsProps> = () => {
       projectsData?.technologies?.map((item: any) => item?.id),
     );
     setFieldValue("images", [projectsData?.images[0]["id"]]);
-  }, [projectsData]);
+  }, [projectsData, setFieldValue]);
 
   return (
     <Edit saveButtonProps={saveButtonProps}>

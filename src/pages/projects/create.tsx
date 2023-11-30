@@ -1,39 +1,15 @@
-/*
 import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineCreateInferencer } from "@refinedev/inferencer/mantine";
-
-export const ProjectCreate: React.FC<IResourceComponentsProps> = () => {
-  return <MantineCreateInferencer />;
-} */
-
-import { IResourceComponentsProps, useList, HttpError } from "@refinedev/core";
-import { Create, useForm, useSelect } from "@refinedev/mantine";
+import { Create, useForm } from "@refinedev/mantine";
 import {
-  Select,
   TextInput,
   Textarea,
-  MultiSelect,
-  Image,
-  Group,
-  Title,
   Text,
 } from "@mantine/core";
-import styles from "./create.module.css";
-//import { getTypeOptions, getRepositoryOptions, getTechnologyOptions } from './../../utils/selectOptions'
 
 import TypeSelect from "./../../components/dropdown/TypeSelect";
 import RepositorySelect from "./../../components/dropdown/RepositorySelect";
 import TechnologySelect from "./../../components/dropdown/TechnologySelect";
 import ImageSelect from "./../../components/image/ImageSelect";
-
-interface Image {
-  id: number;
-  thumb: {
-    id: number;
-    url: string;
-  };
-  url: string;
-}
 
 export const ProjectCreate: React.FC<IResourceComponentsProps> = () => {
   const {

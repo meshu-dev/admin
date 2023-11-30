@@ -5,14 +5,10 @@ import { NumberInput, TextInput } from "@mantine/core";
 export const TypeEdit: React.FC<IResourceComponentsProps> = () => {
   const {
     getInputProps,
-    saveButtonProps,
-    setFieldValue,
-    refineCore: { queryResult },
+    saveButtonProps
   } = useForm({
     initialValues: { id: "", name: "" },
   });
-
-  const typesData = queryResult?.data?.data;
 
   return (
     <Edit saveButtonProps={saveButtonProps}>

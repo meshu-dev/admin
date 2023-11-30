@@ -1,11 +1,3 @@
-/*
-import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineListInferencer } from "@refinedev/inferencer/mantine";
-
-export const ProjectList: React.FC<IResourceComponentsProps> = () => {
-  return <MantineListInferencer />;
-} */
-
 import React from "react";
 import { GetManyResponse, IResourceComponentsProps } from "@refinedev/core";
 import { useTable } from "@refinedev/react-table";
@@ -62,10 +54,6 @@ export const ProjectList: React.FC<IResourceComponentsProps> = () => {
         header: "Repositories",
         accessorKey: "repositories",
         cell: function render({ getValue, table }) {
-          const meta = table.options.meta as {
-            repositoriesData: GetManyResponse;
-          };
-
           const repositories = getValue<any[]>()?.map((item) => {
             return item;
           });
@@ -151,8 +139,7 @@ export const ProjectList: React.FC<IResourceComponentsProps> = () => {
     refineCore: {
       setCurrent,
       pageCount,
-      current,
-      tableQueryResult: { data: tableData },
+      current
     },
   } = useTable({
     columns,

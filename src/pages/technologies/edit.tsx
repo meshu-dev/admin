@@ -6,7 +6,6 @@ export const TechnologyEdit: React.FC<IResourceComponentsProps> = () => {
   const {
     getInputProps,
     saveButtonProps,
-    refineCore: { queryResult },
   } = useForm({
     initialValues: { id: "", name: "" },
   });

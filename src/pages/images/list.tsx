@@ -60,8 +60,7 @@ export const ImageList: React.FC<IResourceComponentsProps> = () => {
     refineCore: {
       setCurrent,
       pageCount,
-      current,
-      tableQueryResult: { data: tableData },
+      current
     },
   } = useTable({
     columns,

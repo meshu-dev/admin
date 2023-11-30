@@ -44,7 +44,6 @@ export const TypeList: React.FC<IResourceComponentsProps> = () => {
       setCurrent,
       pageCount,
       current,
-      tableQueryResult: { data: tableData },
     },
   } = useTable({
     columns,
