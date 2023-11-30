@@ -3,4 +3,4 @@ import { MantineShowInferencer } from "@refinedev/inferencer/mantine";
 
 export const ImageShow: React.FC<IResourceComponentsProps> = () => {
   return <MantineShowInferencer />;
-}
+};

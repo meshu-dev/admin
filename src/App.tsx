@@ -16,15 +16,15 @@ import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 
-import { LaravelProvider } from './LaravelProvider'
+import { LaravelProvider } from "./LaravelProvider";
 
-import resources from './resources.json'
+import resources from "./resources.json";
 
-import MenuRoutes from './routes/menu'
+import MenuRoutes from "./routes/menu";
 
-import { authProvider } from './authProvider';
+import { authProvider } from "./authProvider";
 
 function App() {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -57,7 +57,7 @@ function App() {
                   routerProvider={routerBindings}
                   dataProvider={LaravelProvider(
                     //"https://api.fake-rest.refine.dev"
-                    "http://127.0.0.1:8000/api"
+                    "http://127.0.0.1:8000/api",
                   )}
                   authProvider={authProvider}
                   resources={resources}

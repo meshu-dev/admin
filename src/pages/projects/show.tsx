@@ -5,7 +5,7 @@ import {
   TextField,
   MarkdownField,
   UrlField,
-  TagField
+  TagField,
 } from "@refinedev/mantine";
 import { Title, Group, Image } from "@mantine/core";
 import { useSelect } from "@refinedev/mantine";
@@ -30,27 +30,29 @@ export const ProjectShow: React.FC<IResourceComponentsProps> = () => {
 
   const record = data?.data;
 
-  const repositoryList = []
+  const repositoryList = [];
 
   if (record?.repositories) {
     for (const repository of record.repositories) {
-      repositoryList.push(<TagField value={ repository.name } />)
+      repositoryList.push(<TagField value={repository.name} />);
     }
   }
 
-  const technologyList = []
+  const technologyList = [];
 
   if (record?.technologies) {
     for (const technology of record.technologies) {
-      technologyList.push(<TagField value={ technology.name } />)
+      technologyList.push(<TagField value={technology.name} />);
     }
   }
 
-  const imageList = []
+  const imageList = [];
 
   if (record?.images) {
     for (const image of record.images) {
-      imageList.push(<Image fit="contain" src={ image.url } sx={{ maxWidth: "250px" }} />)
+      imageList.push(
+        <Image fit="contain" src={image.url} sx={{ maxWidth: "250px" }} />,
+      );
     }
   }
 
@@ -79,21 +81,15 @@ export const ProjectShow: React.FC<IResourceComponentsProps> = () => {
       <Title my="xs" order={5}>
         Repositories
       </Title>
-      <Group>
-        { repositoryList }
-      </Group>
+      <Group>{repositoryList}</Group>
       <Title my="xs" order={5}>
         Technologies
       </Title>
-      <Group>
-        { technologyList }
-      </Group>
+      <Group>{technologyList}</Group>
       <Title my="xs" order={5}>
         Images
       </Title>
-      <Group>
-        { imageList }
-      </Group>
+      <Group>{imageList}</Group>
     </Show>
   );
 };

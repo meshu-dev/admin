@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import {
   ProjectList,
   ProjectShow,
   ProjectCreate,
-  ProjectEdit
-} from './../pages/projects'
+  ProjectEdit,
+} from "./../pages/projects";
 
 const ProjectRoutes = () => (
   <Routes>
@@ -15,6 +15,6 @@ const ProjectRoutes = () => (
       <Route path="show/:id" element={<ProjectShow />} />
     </Route>
   </Routes>
-)
+);
 
-export default ProjectRoutes
+export default ProjectRoutes;

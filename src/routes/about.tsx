@@ -1,9 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import {
-  AboutList,
-  AboutShow,
-  AboutEdit
-} from './../pages/about'
+import { Routes, Route } from "react-router-dom";
+import { AboutList, AboutShow, AboutEdit } from "./../pages/about";
 
 const AboutRoutes = () => (
   <Routes>
@@ -13,6 +9,6 @@ const AboutRoutes = () => (
       <Route path="edit" element={<AboutEdit />} />
     </Route>
   </Routes>
-)
+);
 
-export default AboutRoutes
+export default AboutRoutes;

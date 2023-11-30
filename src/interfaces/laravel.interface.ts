@@ -1,21 +1,21 @@
 export interface LaravelListResponse {
   data: {
-    data: Array<any>
+    data: Array<any>;
     meta: {
-      total: number
-    }
-  }
+      total: number;
+    };
+  };
 }
 
 export interface LaravelSingleResponse {
   data: {
-    data: any
-  }
+    data: any;
+  };
 }
 
 export interface LaravelAuthResponse {
   data: {
-    token: string,
-    user: any
-  }
+    token: string;
+    user: any;
+  };
 }

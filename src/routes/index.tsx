@@ -1,6 +1,6 @@
-import RepositoryRoutes from './repositories'
-import TechnologyRoutes from './technologies'
-import TypeRoutes from './types'
+import RepositoryRoutes from "./repositories";
+import TechnologyRoutes from "./technologies";
+import TypeRoutes from "./types";
 
 const AppRoutes = () => (
   <>
@@ -8,6 +8,6 @@ const AppRoutes = () => (
     <TechnologyRoutes />
     <TypeRoutes />
   </>
-)
+);
 
-export default AppRoutes
+export default AppRoutes;

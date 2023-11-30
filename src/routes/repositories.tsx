@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import {
   RepositoryList,
   RepositoryShow,
   RepositoryCreate,
-  RepositoryEdit
-} from './../pages/repositories'
+  RepositoryEdit,
+} from "./../pages/repositories";
 
 const RepositoryRoutes = () => (
   <Routes>
@@ -15,6 +15,6 @@ const RepositoryRoutes = () => (
       <Route path="show/:id" element={<RepositoryShow />} />
     </Route>
   </Routes>
-)
+);
 
-export default RepositoryRoutes
+export default RepositoryRoutes;

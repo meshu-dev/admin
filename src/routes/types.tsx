@@ -1,10 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import {
-  TypeList,
-  TypeShow,
-  TypeCreate,
-  TypeEdit
-} from './../pages/types'
+import { Routes, Route } from "react-router-dom";
+import { TypeList, TypeShow, TypeCreate, TypeEdit } from "./../pages/types";
 
 const TypeRoutes = () => (
   <Routes>
@@ -15,6 +10,6 @@ const TypeRoutes = () => (
       <Route path="show/:id" element={<TypeShow />} />
     </Route>
   </Routes>
-)
+);
 
-export default TypeRoutes
+export default TypeRoutes;

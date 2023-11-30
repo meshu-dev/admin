@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import {
   ImageList,
   ImageShow,
   ImageCreate,
-  ImageEdit
-} from './../pages/images'
+  ImageEdit,
+} from "./../pages/images";
 
 const ImageRoutes = () => (
   <Routes>
@@ -15,6 +15,6 @@ const ImageRoutes = () => (
       <Route path="show/:id" element={<ImageShow />} />
     </Route>
   </Routes>
-)
+);
 
-export default ImageRoutes
+export default ImageRoutes;

@@ -3,4 +3,4 @@ import { MantineCreateInferencer } from "@refinedev/inferencer/mantine";
 
 export const TypeCreate: React.FC<IResourceComponentsProps> = () => {
   return <MantineCreateInferencer />;
-}
+};

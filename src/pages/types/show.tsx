@@ -3,4 +3,4 @@ import { MantineShowInferencer } from "@refinedev/inferencer/mantine";
 
 export const TypeShow: React.FC<IResourceComponentsProps> = () => {
   return <MantineShowInferencer />;
-}
+};

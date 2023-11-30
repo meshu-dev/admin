@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
 import {
   TechnologyList,
   TechnologyShow,
   TechnologyCreate,
-  TechnologyEdit
-} from './../pages/technologies'
+  TechnologyEdit,
+} from "./../pages/technologies";
 
 const TechnologyRoutes = () => (
   <Routes>
@@ -15,6 +15,6 @@ const TechnologyRoutes = () => (
       <Route path="show/:id" element={<TechnologyShow />} />
     </Route>
   </Routes>
-)
+);
 
-export default TechnologyRoutes
+export default TechnologyRoutes;
