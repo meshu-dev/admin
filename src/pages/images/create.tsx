@@ -16,7 +16,7 @@ export const ImageCreate: React.FC = () => {
   const [isUploadLoading] = useState(false);
 
   const {
-    refineCore: { redirect }
+    refineCore: { redirect },
   } = useForm<any, HttpError, FormValues>({
     initialValues: {
       images: [],

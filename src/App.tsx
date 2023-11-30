@@ -36,8 +36,6 @@ function App() {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
-  
-    console.log('process.env.REACT_APP_API_URL', process.env, process.env.REACT_APP_API_URL)
 
   return (
     <BrowserRouter>
