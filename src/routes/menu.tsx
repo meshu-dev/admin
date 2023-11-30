@@ -4,7 +4,6 @@ import { ThemedLayoutV2, ErrorComponent } from "@refinedev/mantine";
 
 import { Header } from "./../components/header/index";
 
-import AboutRoutes from "./about";
 import ImageRoutes from "./images";
 import ProjectRoutes from "./projects";
 import RepositoryRoutes from "./repositories";
