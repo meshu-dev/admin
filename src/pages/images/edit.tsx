@@ -6,13 +6,10 @@ export const ImageEdit: React.FC<IResourceComponentsProps> = () => {
     const {
         getInputProps,
         saveButtonProps,
-        setFieldValue,
         refineCore: { queryResult },
     } = useForm({
         initialValues: { id: "", url: "", thumb: "" },
     });
-
-    const imagesData = queryResult?.data?.data;
 
     return (
         <Edit saveButtonProps={saveButtonProps}>

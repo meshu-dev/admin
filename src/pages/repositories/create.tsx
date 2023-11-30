@@ -6,7 +6,6 @@ export const RepositoryCreate: React.FC<IResourceComponentsProps> = () => {
     const {
         getInputProps,
         saveButtonProps,
-        setFieldValue,
         refineCore: { formLoading },
     } = useForm({
         initialValues: { name: "", url: "" },

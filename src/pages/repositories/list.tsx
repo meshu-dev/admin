@@ -66,8 +66,7 @@ export const RepositoryList: React.FC<IResourceComponentsProps> = () => {
         refineCore: {
             setCurrent,
             pageCount,
-            current,
-            tableQueryResult: { data: tableData },
+            current
         },
     } = useTable({
         columns,

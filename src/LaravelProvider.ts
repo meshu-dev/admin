@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { DataProvider, HttpError } from "@refinedev/core";
+import { DataProvider } from "@refinedev/core";
 import { getToken } from "./authProvider";
 import {
   LaravelListResponse,

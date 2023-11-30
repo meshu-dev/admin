@@ -6,13 +6,10 @@ export const RepositoryEdit: React.FC<IResourceComponentsProps> = () => {
     const {
         getInputProps,
         saveButtonProps,
-        setFieldValue,
         refineCore: { queryResult },
     } = useForm({
         initialValues: { id: "", name: "", url: "" },
     });
-
-    const repositoriesData = queryResult?.data?.data;
 
     return (
         <Edit saveButtonProps={saveButtonProps}>

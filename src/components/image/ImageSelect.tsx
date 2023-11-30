@@ -1,5 +1,5 @@
 import { useList, HttpError } from "@refinedev/core";
-import { Group, Image } from "@mantine/core";
+import { Group, Image as MantineImage } from "@mantine/core";
 import styles from "./imageselect.module.css";
 
 interface Image {
@@ -19,7 +19,7 @@ interface Props {
 const ImageSelect = ({ onImageSelectFtn, selectedImageId }: Props) => {
   const imageList = [];
 
-  const { data, isLoading, isError } = useList<Image, HttpError>({
+  const { data } = useList<Image, HttpError>({
     resource: "images",
     pagination: {
       mode: "off",
@@ -76,7 +76,7 @@ const ImageSelect = ({ onImageSelectFtn, selectedImageId }: Props) => {
           }
           onClick={(event) => selectImage(image.id, event)}
         >
-          <Image
+          <MantineImage
             fit="fill"
             key={image.thumb.id}
             src={image.thumb.url}

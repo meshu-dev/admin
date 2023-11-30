@@ -8,21 +8,6 @@ import {
   TagField,
 } from "@refinedev/mantine";
 import { Title, Group, Image } from "@mantine/core";
-import { useSelect } from "@refinedev/mantine";
-import { Select } from "@mantine/core";
-
-/*
-import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineShowInferencer } from "@refinedev/inferencer/mantine";
-
-export const ProjectShow: React.FC<IResourceComponentsProps> = () => {
-  return <MantineShowInferencer />;
-} */
-
-interface Technology {
-  id: number;
-  name: string;
-}
 
 export const ProjectShow: React.FC<IResourceComponentsProps> = () => {
   const { queryResult } = useShow();

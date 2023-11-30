@@ -1,16 +1,8 @@
-/*
-import { IResourceComponentsProps } from "@refinedev/core";
-import { MantineCreateInferencer } from "@refinedev/inferencer/mantine";
-
-export const ImageCreate: React.FC<IResourceComponentsProps> = () => {
-  return <MantineCreateInferencer />;
-} */
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { HttpError, useApiUrl } from "@refinedev/core";
-import { Create, useForm, useSelect } from "@refinedev/mantine";
-import { Select, TextInput, Text, SimpleGrid, Image } from "@mantine/core";
+import { Create, useForm } from "@refinedev/mantine";
+import { Text, SimpleGrid, Image } from "@mantine/core";
 import { Dropzone, IMAGE_MIME_TYPE, FileWithPath } from "@mantine/dropzone";
 import { getRequestConfig } from "../../LaravelProvider";
 
@@ -21,15 +13,10 @@ interface FormValues {
 let currentImage: FileWithPath;
 
 export const ImageCreate: React.FC = () => {
-  const [isUploadLoading, setIsUploadLoading] = useState(false);
+  const [isUploadLoading] = useState(false);
 
   const {
-    refineCore: { onFinish, redirect },
-    saveButtonProps,
-    getInputProps,
-    setFieldValue,
-    values,
-    errors,
+    refineCore: { redirect }
   } = useForm<any, HttpError, FormValues>({
     initialValues: {
       images: [],
